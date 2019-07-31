@@ -11,7 +11,10 @@ class CategoryItme extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(15),
-      child: Text(cat.title),
+      child: Text(
+        cat.title,
+        style: Theme.of(context).textTheme.title,
+      ),
       decoration: BoxDecoration(
         gradient: LinearGradient(
             colors: [cat.color.withOpacity(0.7), cat.color],
