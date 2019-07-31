@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import './category_meals_screen.dart';
 import './models/category.dart';
 
-class CategoryItme extends StatelessWidget {
+class CategoryItem extends StatelessWidget {
   final Category cat;
 
-  CategoryItme(this.cat);
+  CategoryItem(this.cat);
 
   void selectCategory(BuildContext context) {
     Navigator.of(context).push(
