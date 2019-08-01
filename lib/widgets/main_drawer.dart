@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../screens/filters_screen.dart';
 
 class MainDrawer extends StatelessWidget {
-  Widget _buildListTile(String title, IconData icon, Function tabHandler) {
+  Widget _buildListTile(String title, IconData icon, Function tapHandler) {
     return ListTile(
       leading: Icon(
         icon,
@@ -12,13 +12,12 @@ class MainDrawer extends StatelessWidget {
       title: Text(
         title,
         style: TextStyle(
-            fontFamily: 'RobotoCondensed',
-            fontSize: 24,
-            fontWeight: FontWeight.bold),
+          fontFamily: 'RobotoCondensed',
+          fontSize: 24,
+          fontWeight: FontWeight.bold,
+        ),
       ),
-      onTap: () {
-        // ...
-      },
+      onTap: tapHandler,
     );
   }
 
@@ -28,7 +27,7 @@ class MainDrawer extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Container(
-            height: 100,
+            height: 120,
             width: double.infinity,
             padding: EdgeInsets.all(20),
             alignment: Alignment.centerLeft,
