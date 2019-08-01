@@ -5,8 +5,13 @@ class FiltersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Filters page'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Filters'),
+      ),
+      body: Center(
+        child: Text('Filters page'),
+      ),
     );
   }
 }
