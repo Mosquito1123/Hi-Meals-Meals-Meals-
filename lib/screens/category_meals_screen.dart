@@ -5,23 +5,47 @@ import '../models/category.dart';
 import '../models/meal.dart';
 import '../widgets/meal_item.dart';
 
-class CategoryMealsScreen extends StatelessWidget {
+class CategoryMealsScreen extends StatefulWidget {
   static const routeName = '/category-meals';
 
   @override
-  Widget build(BuildContext context) {
-    final _routeArgs =
-        ModalRoute.of(context).settings.arguments as Map<String, String>;
+  _CategoryMealsScreenState createState() => _CategoryMealsScreenState();
+}
+
+class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
+  List<Meal> _categoryMeals;
+  Category cat;
+  bool _loadedInitData = false;
+
+  void _removeMeal(mealID) {
+    setState(() {
+      _categoryMeals.removeWhere((meal) => meal.id == mealID);
+//        super.setState();
+    });
+  }
+
+  @override
+  void didChangeDependencies() {
+    if (!_loadedInitData) {
+      final _routeArgs =
+          ModalRoute.of(context).settings.arguments as Map<String, String>;
 //    print(_routeArgs);
 
-    final Category cat = DUMMY_CATEGORIES
-        .where((element) => element.id == _routeArgs['id'])
-        .toList()[0];
+      cat = DUMMY_CATEGORIES
+          .where((element) => element.id == _routeArgs['id'])
+          .toList()[0];
 
-    final List<Meal> _categoryMeals =
-        DUMMY_MEALS.where((meal) => meal.categories.contains(cat.id)).toList();
+      _categoryMeals = DUMMY_MEALS
+          .where((meal) => meal.categories.contains(cat.id))
+          .toList();
 //    print(_categoryMeals.length);
+      _loadedInitData = true;
+    }
+    super.didChangeDependencies();
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: cat.color,
@@ -31,7 +55,7 @@ class CategoryMealsScreen extends StatelessWidget {
         child: ListView.builder(
             itemCount: _categoryMeals.length,
             itemBuilder: (ctx, index) {
-              return MealItem(_categoryMeals[index]);
+              return MealItem(_categoryMeals[index], _removeMeal);
             }),
       ),
     );
