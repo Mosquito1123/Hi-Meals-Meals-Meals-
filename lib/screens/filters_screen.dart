@@ -31,6 +31,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
       drawer: MainDrawer(),
       appBar: AppBar(
         title: Text('Filters'),
+        actions: <Widget>[IconButton(icon: Icon(Icons.save), onPressed: () {})],
       ),
       body: Column(
         children: <Widget>[
@@ -61,9 +62,7 @@ class _FiltersScreenState extends State<FiltersScreen> {
                   });
                 }),
                 _buildSwitchListTile(
-                    'Vegan',
-                    'Only include Vegan meals.',
-                    _isVegan, (newValue) {
+                    'Vegan', 'Only include Vegan meals.', _isVegan, (newValue) {
                   setState(() {
                     _isVegan = newValue;
                   });
