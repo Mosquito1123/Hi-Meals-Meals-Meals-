@@ -36,8 +36,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
 //    print(_routeArgs);
 
       cat = DUMMY_CATEGORIES
-          .where((element) => element.id == _routeArgs['id'])
-          .toList()[0];
+          .singleWhere((element) => element.id == _routeArgs['id']);
 
       _displayedMeals = widget.availableMeals
           .where((meal) => meal.categories.contains(cat.id))
