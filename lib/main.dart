@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './dummy_data.dart';
+import './models/meal.dart';
 import './screens/categories_screen.dart';
 import './screens/filters_screen.dart';
 import './screens/meal_detail_screen.dart';
@@ -11,6 +13,8 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    List<Meal> _availableMeals = DUMMY_MEALS;
+
     return MaterialApp(
       title: 'Meals App',
       theme: ThemeData(
@@ -31,7 +35,7 @@ class MyApp extends StatelessWidget {
 //      home: CategoriesScreen(),
       home: TabsScreen(),
       routes: {
-        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
+        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(_availableMeals),
         MealDetailScreen.routeName: (ctx) => MealDetailScreen(),
         FiltersScreen.routeName: (ctx) => FiltersScreen(),
       },
