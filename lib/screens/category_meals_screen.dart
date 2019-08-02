@@ -17,13 +17,13 @@ class CategoryMealsScreen extends StatefulWidget {
 }
 
 class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
-  List<Meal> _categoryMeals;
+  List<Meal> _displayedMeals;
   Category cat;
   bool _loadedInitData = false;
 
   void _removeMeal(mealID) {
     setState(() {
-      _categoryMeals.removeWhere((meal) => meal.id == mealID);
+      _displayedMeals.removeWhere((meal) => meal.id == mealID);
 //        super.setState();
     });
   }
@@ -39,7 +39,7 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
           .where((element) => element.id == _routeArgs['id'])
           .toList()[0];
 
-      _categoryMeals = widget.availableMeals
+      _displayedMeals = widget.availableMeals
           .where((meal) => meal.categories.contains(cat.id))
           .toList();
 //    print(_categoryMeals.length);
@@ -57,9 +57,9 @@ class _CategoryMealsScreenState extends State<CategoryMealsScreen> {
       ),
       body: Center(
         child: ListView.builder(
-            itemCount: _categoryMeals.length,
+            itemCount: _displayedMeals.length,
             itemBuilder: (ctx, index) {
-              return MealItem(_categoryMeals[index], _removeMeal);
+              return MealItem(_displayedMeals[index], _removeMeal);
             }),
       ),
     );
