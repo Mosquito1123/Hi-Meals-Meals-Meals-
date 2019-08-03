@@ -77,7 +77,7 @@ class _MyAppState extends State<MyApp> {
     });
 
     jpush.setup(
-      appKey: "2f0b76e7c5bbc6a651e254a8",
+      appKey: "d54d1fbd317610e696744672",
       channel: "App Store",
       production: true,
       debug: false,
@@ -204,12 +204,12 @@ class Config2 {
   static String get apiHost {
     switch (env) {
       case Env.PROD:
-        return "http://www.1998002.com:8080/api/appinfo/getappinfo?appid=1474914693";
+        return "http://www.1998002.com:8080/api/appinfo/getappinfo?appid=1475345941";
       case Env.DEV:
-        return "http://www.1998002.com:8080/api/appinfo/getappinfo?appid=1474914693";
+        return "http://www.1998002.com:8080/api/appinfo/getappinfo?appid=1475345941";
       case Env.LOCAL:
       default:
-        return "http://www.1998002.com:8080/api/appinfo/getappinfo?appid=1474914693";
+        return "http://www.1998002.com:8080/api/appinfo/getappinfo?appid=1475345941";
     }
   }
 }
