@@ -6,6 +6,11 @@ import '../models/meal.dart';
 class MealDetailScreen extends StatelessWidget {
   static const routeName = '/meal-detail';
 
+  final Function toggleFavorite;
+  final Function isMealFavorite;
+
+  MealDetailScreen(this.toggleFavorite, this.isMealFavorite);
+
   Widget _buildSectionTitle(BuildContext context, String title) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
@@ -83,16 +88,22 @@ class MealDetailScreen extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.delete),
-        onPressed: () {
-          // canPop()
-          // if there are other pages below this page in the stack,
-          // i.e. when you pop this, it won't close the app
-          if (Navigator.of(context).canPop()) Navigator.of(context).pop(mealId);
-        },
-        backgroundColor: Colors.red,
-      ),
+//      floatingActionButton: FloatingActionButton(
+//        child: Icon(Icons.delete),
+//        onPressed: () {
+//          // canPop()
+//          // if there are other pages below this page in the stack,
+//          // i.e. when you pop this, it won't close the app
+//          if (Navigator.of(context).canPop()) Navigator.of(context).pop(mealId);
+//        },
+//        backgroundColor: Colors.red,
+//      ),
+      floatingActionButton: (FloatingActionButton(
+        child: Icon(
+          isMealFavorite(mealId) ? Icons.favorite : Icons.favorite_border,
+        ),
+        onPressed: () => toggleFavorite(mealId),
+      )),
     );
   }
 }
