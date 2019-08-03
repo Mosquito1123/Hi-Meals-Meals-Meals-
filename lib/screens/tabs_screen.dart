@@ -30,7 +30,7 @@ class _TabsScreenState extends State<TabsScreen> {
     // is not available directly in the state.
     // only available in build methods or initState
     _pages = [
-      {'title': 'Categories', 'page': CategoriesScreen()},
+      {'title': 'Hi!Meals!', 'page': CategoriesScreen()},
       {'title': 'Your Favorites', 'page': FavoritesScreen(widget.favoriteMeals)}
     ];
     super.initState();
@@ -56,12 +56,12 @@ class _TabsScreenState extends State<TabsScreen> {
             // only add bg color in tabs with BottomNavigationBarType.shifting
             backgroundColor: Theme.of(context).primaryColor,
             icon: Icon(Icons.category),
-            title: Text('Categories'),
+            title: Text('Hi!Meals!'),
           ),
           BottomNavigationBarItem(
             // only add bg color in tabs with BottomNavigationBarType.shifting
             backgroundColor: Theme.of(context).primaryColor,
-            icon: Icon(Icons.star),
+            icon: Icon(Icons.favorite),
             title: Text('Favorites'),
           ),
         ],

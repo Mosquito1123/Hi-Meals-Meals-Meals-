@@ -33,7 +33,7 @@ class MainDrawer extends StatelessWidget {
             alignment: Alignment.centerLeft,
             color: Theme.of(context).accentColor,
             child: Text(
-              'Cooking !',
+              'Hi! Meals!Cooking !',
               style: TextStyle(
                 fontSize: 30,
                 color: Theme.of(context).primaryColor,
@@ -41,7 +41,7 @@ class MainDrawer extends StatelessWidget {
               ),
             ),
           ),
-          _buildListTile('Meals', Icons.restaurant, () {
+          _buildListTile('Meals', Icons.restaurant_menu, () {
             Navigator.of(context).pushReplacementNamed('/');
           }),
           _buildListTile('Filters', Icons.settings, () {

@@ -1,5 +1,7 @@
 name: meals_app
 description: A new Flutter project.
+author: Winston <winston.zhangwentong@gmail.com>
+
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -23,6 +25,11 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  url_launcher: any
+  webview_flutter: 0.3.10+4
+  http: 0.12.0+2
+  jpush_flutter: 0.0.13
+
 
 dev_dependencies:
   flutter_test:
